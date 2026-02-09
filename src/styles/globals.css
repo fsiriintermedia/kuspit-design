@@ -1,0 +1,195 @@
+/**
+ * Tokens del Design System (CSS variables).
+ * Importar una vez en la app: import "@kuspit/design-system/styles.css"
+ * La app debe usar el preset de Tailwind del design system para que las clases (bg-primary, etc.) resuelvan.
+ */
+
+:root {
+  --radius: 0.625rem;
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.145 0 0);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.145 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.145 0 0);
+  --primary: hsla(274, 66%, 26%, 1);
+  --primary-foreground: oklch(0.985 0 0);
+  --primary-dark: hsla(274, 67%, 18%, 1);
+  --primary-light: hsla(273, 24%, 85%, 1);
+  --primary-light-foreground: hsla(274, 66%, 26%, 1);
+  --primary-lighter: hsla(278, 21%, 93%, 1);
+  --secondary: oklch(0.97 0 0);
+  --secondary-foreground: oklch(0.205 0 0);
+  --muted: oklch(0.97 0 0);
+  --muted-foreground: oklch(0.556 0 0);
+  --accent: hsla(65, 100%, 42%, 1);
+  --accent-foreground: oklch(0.205 0 0);
+  --menu-accent: hsla(220, 13%, 91%, 1);
+  --menu-accent-foreground: hsla(274, 67%, 18%, 1);
+  --destructive: hsla(0, 85%, 49%, 1);
+  --destructive-background: hsla(0, 78%, 95%, 1);
+  --success-light: hsla(100, 46%, 95%, 1);
+  --success-light-foreground: hsla(100, 48%, 51%, 1);
+  --border: hsla(0, 0%, 82%, 1);
+  --input: oklch(0.861 0 0);
+  --input-text: hsla(0, 0%, 38%, 1);
+  --ring: oklch(0.861 0 0);
+  --chart-1: oklch(0.646 0.222 41.116);
+  --chart-2: oklch(0.6 0.118 184.704);
+  --chart-3: oklch(0.398 0.07 227.392);
+  --chart-4: oklch(0.828 0.189 84.429);
+  --chart-5: oklch(0.769 0.188 70.08);
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.145 0 0);
+  --sidebar-primary: oklch(0.205 0 0);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: hsla(65, 100%, 42%, 1);
+  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-border: oklch(0.922 0 0);
+  --sidebar-ring: oklch(0.861 0 0);
+  --disabled: hsla(0, 0%, 65%, 1);
+  --disabled-background: hsla(0, 0%, 0%, 0.8);
+  --gradient-primary: linear-gradient(243.18deg, #2f1c3d 0%, #48166d 100%);
+  --info: hsla(240, 3%, 94%, 1);
+  --info-foreground: hsla(0, 0%, 22%, 1);
+  --status-primary: hsla(307, 62%, 38%, 1);
+  --status-success: hsla(100, 48%, 51%, 1);
+  --status-yellow: hsla(40, 100%, 48%, 1);
+  --status-warning: hsla(17, 79%, 54%, 1);
+  --status-danger: hsla(0, 85%, 49%, 1);
+  --status-blue: hsla(216, 69%, 55%, 1);
+  --status-gradient-warning: linear-gradient(109.56deg, #fffcfb 49.88%, #fae0d7 99.82%);
+  --status-gradient-danger: linear-gradient(109.56deg, #fffcfb 49.88%, #fae0d7 99.82%);
+  --neutral-500: hsla(0, 0%, 56%, 1);
+  --error-light: hsl(1, 58%, 88%);
+  --font-sans: ui-sans-serif, system-ui, sans-serif, "Inter", sans-serif;
+  --shadow-xs: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+}
+
+.dark {
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.205 0 0);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.205 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.922 0 0);
+  --primary-foreground: oklch(0.205 0 0);
+  --secondary: oklch(0.269 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.861 0 0);
+  --accent: oklch(0.269 0 0);
+  --accent-foreground: oklch(0.985 0 0);
+  --menu-accent: hsla(220, 13%, 91%, 1);
+  --menu-accent-foreground: hsla(274, 67%, 18%, 1);
+  --destructive: oklch(0.704 0.191 22.216);
+  --destructive-background: hsla(0, 78%, 95%, 1);
+  --border: hsla(0, 0%, 82%, 1);
+  --input: hsla(0, 0%, 82%, 1);
+  --ring: oklch(0.556 0 0);
+  --chart-1: oklch(0.488 0.243 264.376);
+  --chart-2: oklch(0.696 0.17 162.48);
+  --chart-3: oklch(0.769 0.188 70.08);
+  --chart-4: oklch(0.627 0.265 303.9);
+  --chart-5: oklch(0.645 0.246 16.439);
+  --sidebar: oklch(0.205 0 0);
+  --sidebar-foreground: oklch(0.145 0 0);
+  --sidebar-primary: oklch(0.205 0 0);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: hsla(65, 100%, 42%, 1);
+  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-border: oklch(0.922 0 0);
+  --sidebar-ring: oklch(0.861 0 0);
+  --disabled: hsla(0, 0%, 65%, 1);
+  --disabled-background: hsla(0, 0%, 0%, 0.8);
+  --gradient-primary: linear-gradient(243.18deg, #2f1c3d 0%, #48166d 100%);
+  --info: hsla(240, 3%, 94%, 1);
+  --info-foreground: hsla(0, 0%, 22%, 1);
+  --primary-light: hsla(273, 24%, 85%, 1);
+  --primary-light-foreground: hsla(274, 66%, 26%, 1);
+  --status-primary: hsla(307, 62%, 38%, 1);
+  --status-success: hsla(100, 48%, 51%, 1);
+  --status-yellow: hsla(40, 100%, 48%, 1);
+  --status-warning: hsla(17, 79%, 54%, 1);
+  --status-danger: hsla(0, 85%, 49%, 1);
+  --status-blue: hsla(216, 69%, 55%, 1);
+  --status-gradient-warning: linear-gradient(109.56deg, #fffcfb 49.88%, #fae0d7 99.82%);
+  --status-gradient-danger: linear-gradient(109.56deg, #fffcfb 49.88%, #fae0d7 99.82%);
+  --neutral-500: hsla(0, 0%, 56%, 1);
+}
+
+.shadow-default {
+  box-shadow: 1px 2px 4px 0px hsla(0, 0%, 0%, 0.05);
+}
+
+.shadow-warning {
+  box-shadow: 0px 4px 6px 0px hsla(17, 79%, 54%, 0.1);
+}
+
+.shadow-danger {
+  box-shadow: 4px 6px 6px 0px hsla(0, 85%, 49%, 0.1);
+}
+
+.shadow-default:hover {
+  box-shadow: 0px 4px 6px 0px hsla(0, 0%, 0%, 0.1);
+}
+
+.shadow-warning:hover {
+  box-shadow: 4px 6px 6px 0px hsla(17, 79%, 54%, 0.15);
+}
+
+.shadow-danger:hover {
+  box-shadow: 4px 6px 6px 0px hsla(0, 85%, 49%, 0.15);
+}
+
+.shadow-default-card {
+  box-shadow: 0px 4px 6px 0px hsla(0, 0%, 0%, 0.1);
+}
+
+::-webkit-scrollbar,
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  background: transparent;
+}
+
+::-webkit-scrollbar-track,
+html::-webkit-scrollbar-track,
+body::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb,
+html::-webkit-scrollbar-thumb,
+body::-webkit-scrollbar-thumb {
+  background: var(--primary);
+  border-radius: 6px;
+}
+
+* {
+  scrollbar-color: var(--primary) transparent;
+}
+
+@keyframes caret-blink {
+  0%, 70%, 100% { opacity: 1; }
+  20%, 50% { opacity: 0; }
+}
+
+.animate-caret-blink {
+  animation: caret-blink 1s step-end infinite;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 1000px transparent inset !important;
+  box-shadow: 0 0 0 1000px transparent inset !important;
+  -webkit-text-fill-color: inherit !important;
+  transition: background-color 9999s ease-in-out 0s;
+}
+
+input:-internal-autofill-selected {
+  background-color: transparent !important;
+  color: inherit !important;
+}
