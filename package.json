@@ -1,5 +1,5 @@
 {
-  "name": "@kuspit/design-system",
+  "name": "@fsiriintermedia/design-system",
   "publishConfig": {
     "registry": "https://npm.pkg.github.com"
   },

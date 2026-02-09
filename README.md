@@ -86,6 +86,153 @@ export default function Page() {
 }
 ```
 
+## Integración con Tailwind CSS v4 (Next.js)
+
+Para proyectos que usen **Tailwind 4** (CSS-first, `@import "tailwindcss"` + `@source`), la integración recomendada es:
+
+### 1. Instalar el package
+
+Ejemplo con el scope publicado en GitHub Packages:
+
+```bash
+pnpm add @fsiriintermedia/design-system
+```
+
+### 2. Configurar `globals.css` (fuente de Tailwind 4)
+
+En `src/app/globals.css` del proyecto consumidor:
+
+```css
+/* 1. Tokens del design system */
+@import "@fsiriintermedia/design-system/styles.css";
+
+/* 2. Tailwind 4 + base de escaneo */
+@import "tailwindcss" source("../.."); /* "../.." = raíz del repo */
+
+/* 3. Registrar el design-system como fuente adicional de clases */
+@source "node_modules/@fsiriintermedia/design-system/dist";
+
+/* 4. Otros imports/plugins CSS opcionales */
+@import "tw-animate-css";
+```
+
+- `source("../..")` fija la raíz de escaneo de Tailwind en la raíz del repo.
+- `@source "node_modules/@fsiriintermedia/design-system/dist";` hace que Tailwind 4 también escanee el `dist` del design system, generando las utilidades que usan los componentes internos (Button, Input, DatePicker, etc.).
+
+> Nota (pnpm): si tienes problemas de resolución de `node_modules` con pnpm + Tailwind 4, es recomendable:
+>
+> ```ini
+> # .npmrc del proyecto consumidor
+> node-linker=hoisted
+> ```
+
+### 3. (Opcional) Configuración JS de Tailwind (preset)
+
+Aunque Tailwind 4 se puede configurar solo desde CSS, también puedes usar el preset JS del design system para compartir parte del tema:
+
+```js
+// tailwind.config.js
+module.exports = {
+  presets: [require("@fsiriintermedia/design-system/tailwind.config.cjs")],
+  theme: {
+    extend: {
+      colors: {
+        primary: "var(--primary)",
+        "primary-dark": "var(--primary-dark)",
+        "primary-light": "var(--primary-light)",
+        "primary-lighter": "var(--primary-lighter)",
+        disabled: "var(--disabled)",
+      },
+      fontFamily: {
+        sans: ["var(--font-inter)", "sans-serif"],
+      },
+    },
+  },
+  plugins: [],
+};
+```
+
+Para Tailwind 4, lo **crítico** es el CSS (`@import "tailwindcss"` + `@source`). El config JS es un extra opcional.
+
+### 4. Importar el CSS global en Next.js
+
+En el `RootLayout` de Next.js (proyecto consumidor):
+
+```tsx
+// src/app/layout.tsx
+import type { Metadata } from "next";
+import { Inter } from "next/font/google";
+import "./globals.css";
+
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+});
+
+export const metadata: Metadata = {
+  title: "Mi app",
+  description: "Descripción",
+};
+
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return (
+    <html lang="es">
+      <body className={`${inter.className} antialiased`}>{children}</body>
+    </html>
+  );
+}
+```
+
+### 5. Usar componentes del design system
+
+```tsx
+import { Button, Input, DatePicker } from "@fsiriintermedia/design-system";
+
+export function Example() {
+  return (
+    <div className="space-y-4">
+      <Input placeholder="Introduce tu nombre" />
+      <DatePicker label="Fecha" />
+      <Button variant="default">Guardar</Button>
+    </div>
+  );
+}
+```
+
+Las clases internas de estos componentes se generan correctamente porque Tailwind 4 está escaneando el `dist` del design system mediante `@source`.
+
+### 6. Resumen rápido (Tailwind 4)
+
+Para un proyecto Next.js + Tailwind 4:
+
+- Instalar el paquete:
+
+  ```bash
+  pnpm add @fsiriintermedia/design-system
+  ```
+
+- En `globals.css`:
+
+  ```css
+  @import "@fsiriintermedia/design-system/styles.css";
+  @import "tailwindcss" source("../..");
+  @source "node_modules/@fsiriintermedia/design-system/dist";
+  ```
+
+- (Opcional) Usar el preset JS:
+
+  ```js
+  module.exports = {
+    presets: [require("@fsiriintermedia/design-system/tailwind.config.cjs")],
+  };
+  ```
+
+- Importar `globals.css` en el entry point de la app y usar los componentes normalmente.
+
 ## Estructura del repo
 
 ```
